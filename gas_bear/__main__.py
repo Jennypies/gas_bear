@@ -23,7 +23,6 @@ def main():
     logger.info("Initial sensor config complete")
 
     while True:
-        output = []
         logger.info("Polling sensors")
         if sensor.get_sensor_data():
             logger.info("Sensor data collected")
@@ -52,7 +51,7 @@ def main():
             f.close()
 
             logger.info("Waiting for a bit...")
-            time.sleep(10)
+            time.sleep(300)
 
 
 if __name__ == "__main__":
