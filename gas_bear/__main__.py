@@ -1,6 +1,7 @@
 import logging
 import bme680
 import time
+import csv
 
 logger = logging.getLogger(__name__)
 
@@ -43,8 +44,11 @@ def main():
             logger.warning("No data from sensors")
             output = [0, 0, 0, 0]
 
+            output.insert(0, time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()))
+
         with open('data.csv', mode='a+', newline='') as f:
-            f.write(str(output))
+            writer = csv.writer(f, delimiter=' ')
+            writer.writerow(output)
             f.close()
 
             logger.info("Waiting for a bit...")
