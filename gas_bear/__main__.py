@@ -47,7 +47,7 @@ def main():
         output.insert(0, time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()))
 
         with open('data.csv', mode='a+', newline='') as f:
-            writer = csv.writer(f, delimiter=' ')
+            writer = csv.writer(f)
             writer.writerow(output)
             f.close()
 
