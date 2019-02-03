@@ -52,7 +52,7 @@ def main():
             f.close()
 
             logger.info("Waiting for a bit...")
-            time.sleep(20)
+            time.sleep(10)
 
 
 if __name__ == "__main__":
