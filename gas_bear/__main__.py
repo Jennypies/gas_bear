@@ -1,4 +1,3 @@
-
 import logging
 import bme680
 import time
@@ -23,28 +22,33 @@ def main():
     logger.info("Initial sensor config complete")
 
     while True:
+        output = []
         logger.info("Polling sensors")
         if sensor.get_sensor_data():
             logger.info("Sensor data collected")
-            output = '{0:.2f} C,{1:.2f} hPa,{2:.2f} %RH'.format(
+            output = [
                 sensor.data.temperature,
                 sensor.data.pressure,
-                sensor.data.humidity)
+                sensor.data.humidity
+                ]
 
             if sensor.data.heat_stable:
                 logger.info("Gas sensor data collected")
-                logger.info('{0},{1} Ohms'.format(
-                    output,
-                    sensor.data.gas_resistance))
+                output.append(sensor.data.gas_resistance)
 
             else:
                 logger.warning("Gas sensor data not heat stable")
-                logger.info(output)
+                output.append(0)
         else:
             logger.warning("No data from sensors")
+            output = [0, 0, 0, 0]
+
+    with open('data.csv', mode='a+', newline='') as f:
+        f.write(output)
+        f.close()
 
         logger.info("Waiting for a bit...")
-        time.sleep(10)
+        time.sleep(20)
 
 
 if __name__ == "__main__":
