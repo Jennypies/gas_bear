@@ -30,16 +30,17 @@ def main():
                 sensor.data.temperature,
                 sensor.data.pressure,
                 sensor.data.humidity)
-
-            if sensor.data.heat_stable:
-                logger.info("Gas sensor data collected")
-                print('{0},{1} Ohms'.format(
-                    output,
-                    sensor.data.gas_resistance))
-
-            else:
-                logger.warning("Gas sensor data not heat stable")
                 print(output)
+
+            #if sensor.data.heat_stable:
+            #    logger.info("Gas sensor data collected")
+            #    print('{0},{1} Ohms'.format(
+            #        output,
+            #        sensor.data.gas_resistance))
+
+            #else:
+            #    logger.warning("Gas sensor data not heat stable")
+            #    print(output)
         else:
             logger.warning("No data from sensors")
 
