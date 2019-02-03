@@ -44,7 +44,7 @@ def main():
             output = [0, 0, 0, 0]
 
         with open('data.csv', mode='a+', newline='') as f:
-            f.write(", ".join(output))
+            f.write(str(output))
             f.close()
 
             logger.info("Waiting for a bit...")
