@@ -43,12 +43,12 @@ def main():
             logger.warning("No data from sensors")
             output = [0, 0, 0, 0]
 
-    with open('data.csv', mode='a+', newline='') as f:
-        f.write(output)
-        f.close()
+        with open('data.csv', mode='a+', newline='') as f:
+            f.write(output)
+            f.close()
 
-        logger.info("Waiting for a bit...")
-        time.sleep(20)
+            logger.info("Waiting for a bit...")
+            time.sleep(20)
 
 
 if __name__ == "__main__":
