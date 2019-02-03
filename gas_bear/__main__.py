@@ -44,7 +44,7 @@ def main():
             logger.warning("No data from sensors")
             output = [0, 0, 0, 0]
 
-            output.insert(0, time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()))
+        output.insert(0, time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()))
 
         with open('data.csv', mode='a+', newline='') as f:
             writer = csv.writer(f, delimiter=' ')
