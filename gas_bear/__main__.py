@@ -30,7 +30,7 @@ def main():
                 sensor.data.temperature,
                 sensor.data.pressure,
                 sensor.data.humidity)
-                print(output)
+            print(output)
 
             #if sensor.data.heat_stable:
             #    logger.info("Gas sensor data collected")
